@@ -30,6 +30,15 @@ namespace EFApp
 
                 db.Stations.Add(station);
                 db.SaveChanges();
+
+                var query = from b in db.Users
+                            select b;
+
+                foreach (var item in query)
+                {
+                    Console.WriteLine("{0} : {1} : {2}", item.Id, item.Name,item.Password);
+                } 
+
             }
            // Console.ReadKey();
         }
